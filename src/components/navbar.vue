@@ -1,9 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-4">
     <div class="container-fluid container-lg">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <h1 class="brand-text m-0 fs-3 fw-bold">Masajes</h1>
-        <span class="brand-subtext m-0 fs-6 ms-1">ELENA</span>
+        <span class="brand-subtext m-0 fs-6 ms-1 texto-dorado-hex { color: #DAA520; }">ELENA</span>
       </a>
 
       <button
@@ -34,15 +34,6 @@
             <a class="nav-link" href="#opiniones" @click="closeMenu">Opiniones</a>
           </li>
         </ul>
-        <div class="d-flex justify-content-center mt-3 mt-lg-0">
-          <a
-            href="https://wa.me/56979472823?text=Hola%20Elena!%20%20Me%20gustar%C3%ADa%20consultar%20por%20un%20servicio%20de%20u%C3%B1as%20o%20masajes%20"
-            target="_blank"
-            class="btn btn-primary-pink rounded-pill px-4 text-uppercase fw-medium fs-7"
-          >
-            Reservar por WhatsApp
-          </a>
-        </div>
       </div>
     </div>
   </nav>
@@ -87,17 +78,9 @@ const closeMenu = () => {
 }
 .nav-link:hover,
 .nav-link.active {
-  color: #d65d7a !important;
+  color: #333 !important;
 }
-.btn-primary-pink {
-  background-color: #e57c91;
-  border-color: #e57c91;
-  color: white;
-}
-.btn-primary-pink:hover {
-  background-color: #d65d7a;
-  border-color: #d65d7a;
-}
+
 .fs-7 {
   font-size: 0.8rem;
 }
@@ -107,5 +90,9 @@ const closeMenu = () => {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+}
+
+.texto-dorado-hex {
+  color: #e57c91;
 }
 </style>

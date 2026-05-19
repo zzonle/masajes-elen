@@ -14,6 +14,23 @@
             Uñas soft gel y diseños personalizados para que te sientas única todos los días.
           </p>
           <div class="d-flex gap-3 justify-content-center justify-content-lg-start mb-4"></div>
+
+          <div class="">
+            <a
+              href="https://wa.me/56979472823?text=Hola%20Elena!%20%20Me%20gustar%C3%ADa%20consultar%20por%20un%20servicio%20de%20u%C3%B1as%20o%20masajes%20"
+              target="_blank"
+              class="btn btn-primary-pink rounded-pill px-4 text-uppercase fw-medium fs-5 d-inline-flex align-items-center gap-2"
+            >
+              <span>Reservar por WhatsApp</span>
+              <img
+                src="/src/assets/whatsapp-svgrepo-com.svg"
+                width="30"
+                height="30"
+                style="filter: brightness(0) invert(1)"
+                alt="WhatsApp"
+              />
+            </a>
+          </div>
         </div>
 
         <div class="col-lg-6 order-1 order-lg-2 text-center position-relative">
@@ -85,5 +102,14 @@
     border-radius: 50% / 10% 10% 0 0; /* Flatten the arc significantly on mobile */
     border-width: 8px; /* Thinner border for small screens */
   }
+}
+.btn-primary-pink {
+  background-color: #e57c91;
+  border-color: #e57c91;
+  color: white;
+}
+.btn-primary-pink:hover {
+  background-color: #d65d7a;
+  border-color: #d65d7a;
 }
 </style>
