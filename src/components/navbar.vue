@@ -20,7 +20,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav" ref="navbarNavCollapse">
-        <ul class="navbar-nav mx-auto text-uppercase align-items-center">
+        <ul class="navbar-nav ms-auto text-uppercase align-items-center">
           <li class="nav-item">
             <a class="nav-link" href="#inicio" @click="closeMenu">Inicio</a>
           </li>

@@ -21,7 +21,7 @@
               target="_blank"
               class="btn btn-primary-pink rounded-pill px-4 text-uppercase fw-medium fs-5 d-inline-flex align-items-center gap-2"
             >
-              <span>Reservar por WhatsApp</span>
+              <span>¡Reservar tu hora por WhatsApp!</span>
               <img
                 src="/src/assets/whatsapp-svgrepo-com.svg"
                 width="30"

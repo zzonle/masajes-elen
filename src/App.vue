@@ -71,28 +71,57 @@ const verGaleria = ref(false)
       <GaleriaCompleta :mostrar="verGaleria" @cerrar="verGaleria = false" />
     </div>
 
-    <section class="py-5 info-banner">
-      <div class="container">
-        <div class="row text-center g-4">
-          <div class="col-md-3 border-end-md">
-            <h5 class="text-pink mb-2">❤️ Productos de calidad</h5>
-            <small class="text-muted d-block px-3"
-              >Utilizo productos profesionales para cuidar la salud de tus uñas.</small
-            >
+    <section class="py-5" style="background-color: #fff5f6">
+      <div class="container py-2">
+        <!-- g-4 añade la separación horizontal y vertical automática entre columnas -->
+        <div class="row g-4 justify-content-center">
+          <!-- Tarjeta 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 py-5 px-4 h-100 text-center bg-white">
+              <!-- CONTENEDOR DEL ICONO: Esto es lo que le falta para pasar de un 7/10 a un 10/10 -->
+              <div
+                class="mb-4 d-flex justify-content-center align-items-center"
+                style="height: 45px"
+              >
+                <!-- Puedes usar un tag <img> apuntando a tus SVGs en assets -->
+                <img style="height: 100%; width: auto" alt="Icono" />
+              </div>
+
+              <h3 class="fs-5 fw-bold text-dark-pink mb-3">Productos de calidad</h3>
+              <p class="fs-7 text-muted lh-base m-0">
+                Utilizo productos profesionales para cuidar la salud de tus uñas.
+              </p>
+            </div>
           </div>
-          <div class="col-md-3 border-end-md">
-            <h5 class="text-pink mb-2">✨ Higiene y seguridad</h5>
-            <small class="text-muted d-block px-3"
-              >Instrumentos esterilizados y espacio 100% higiénico.</small
-            >
+
+          <!-- Tarjeta 2 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
+              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Higiene y seguridad</h3>
+              <p class="fs-6 text-muted lh-base m-0">
+                Instrumentos esterilizados y espacio 100% higiénico.
+              </p>
+            </div>
           </div>
-          <div class="col-md-3 border-end-md">
-            <h5 class="text-pink mb-2">🕒 Atención personalizada</h5>
-            <small class="text-muted d-block px-3">Cada diseño es único, como tú.</small>
+
+          <!-- Tarjeta 3 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
+              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Atención personalizada</h3>
+              <p class="fs-6 text-muted lh-base m-0">
+                Cada diseño es único, pensado especialmente como tú.
+              </p>
+            </div>
           </div>
-          <div class="col-md-3">
-            <h5 class="text-pink mb-2">📅 Agenda tu hora</h5>
-            <small class="text-muted d-block px-3">Fácil y rápido por WhatsApp, ¡te espero!</small>
+
+          <!-- Tarjeta 4 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
+              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Agenda tu hora</h3>
+              <p class="fs-6 text-muted lh-base m-0">
+                Fácil y rápido por WhatsApp. ¡Te espero para consentirte!
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -136,7 +165,10 @@ const verGaleria = ref(false)
           <div class="col-md-3">
             <h6 class="fw-bold mb-3">💬 WHATSAPP</h6>
             <p class="fs-7 text-muted mb-1">Reserva tu hora<br />+56 9 7947 2823</p>
-            <a href="https://wa.me/56979472823" class="fs-7 text-pink" target="_blank"
+            <a
+              href="https://wa.me/56979472823?text=Hola%20Elena!%20%20Me%20gustar%C3%ADa%20consultar%20por%20un%20servicio%20de%20u%C3%B1as%20o%20masajes%20"
+              class="fs-7 text-pink"
+              target="_blank"
               >Escribirme</a
             >
           </div>
@@ -165,6 +197,7 @@ const verGaleria = ref(false)
 <style>
 /* Estilos globales para matizar el diseño de la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -234,5 +267,28 @@ body {
 }
 .fs-7 {
   font-size: 0.85rem;
+}
+
+.text-gold {
+  color: #daa520; /* Tu color dorado característico */
+}
+
+.text-dark-pink {
+  color: #c45b70; /* Un rosa con más peso visual para los títulos */
+  font-family: 'Playfair Display', serif; /* Misma fuente del logo para consistencia */
+  letter-spacing: 0.5px;
+}
+
+.text-muted {
+  color: #6c757d !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+.lh-base {
+  line-height: 1.6 !important; /* Da aire entre las líneas para que se lea mejor */
+}
+
+.fs-7 {
+  font-size: 0.88rem; /* Tamaño ideal para textos secundarios */
 }
 </style>
