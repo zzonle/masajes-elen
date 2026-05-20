@@ -203,7 +203,11 @@ const verGaleria = ref(false)
       class="whatsapp-floating-btn shadow"
       target="_blank"
     >
-      <i class="bi bi-whatsapp"></i>
+      <img
+        src="/src/assets/whatsapp-svgrepo-com.svg"
+        alt="WhatsApp"
+        style="width: 32px; height: 32px; filter: brightness(0) invert(1)"
+      />
     </a>
 
     <GaleriaCompleta :mostrar="verGaleria" @cerrar="verGaleria = false" />
