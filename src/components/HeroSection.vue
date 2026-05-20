@@ -4,7 +4,7 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-6 order-2 order-lg-1 text-center text-lg-start pt-4 pt-lg-0">
           <div class="badge-pink mb-3 d-inline-block px-3 py-1 rounded-pill">
-            🌸 BIENVENIDA A MASAJES ELENA 🌸
+            🌸 BIENVENIDA A MASAJES ELEN 🌸
           </div>
           <h1 class="display-4 fw-normal text-dark main-title mb-3">
             Realzamos tu estilo,<br />
@@ -17,7 +17,7 @@
 
           <div class="">
             <a
-              href="https://wa.me/56979472823?text=Hola%20Elena!%20%20Me%20gustar%C3%ADa%20consultar%20por%20un%20servicio%20de%20u%C3%B1as%20o%20masajes%20"
+              href="https://wa.me/56979472823?text=Hola%20Berta!%20%20Me%20gustar%C3%ADa%20consultar%20por%20un%20servicio%20de%20u%C3%B1as%20o%20masajes%20"
               target="_blank"
               class="btn btn-primary-pink rounded-pill px-4 text-uppercase fw-medium fs-5 d-inline-flex align-items-center gap-2"
             >

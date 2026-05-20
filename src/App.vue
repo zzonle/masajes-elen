@@ -77,18 +77,9 @@ const verGaleria = ref(false)
         <div class="row g-4 justify-content-center">
           <!-- Tarjeta 1 -->
           <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm rounded-4 py-5 px-4 h-100 text-center bg-white">
-              <!-- CONTENEDOR DEL ICONO: Esto es lo que le falta para pasar de un 7/10 a un 10/10 -->
-              <div
-                class="mb-4 d-flex justify-content-center align-items-center"
-                style="height: 45px"
-              >
-                <!-- Puedes usar un tag <img> apuntando a tus SVGs en assets -->
-                <img style="height: 100%; width: auto" alt="Icono" />
-              </div>
-
-              <h3 class="fs-5 fw-bold text-dark-pink mb-3">Productos de calidad</h3>
-              <p class="fs-7 text-muted lh-base m-0">
+            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
+              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Productos de calidad</h3>
+              <p class="fs-6 text-muted lh-base m-0">
                 Utilizo productos profesionales para cuidar la salud de tus uñas.
               </p>
             </div>
@@ -107,9 +98,9 @@ const verGaleria = ref(false)
           <!-- Tarjeta 3 -->
           <div class="col-md-6 col-lg-3">
             <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
-              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Atención personalizada</h3>
+              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Agenda tu hora</h3>
               <p class="fs-6 text-muted lh-base m-0">
-                Cada diseño es único, pensado especialmente como tú.
+                Fácil y rápido por WhatsApp. ¡Te espero para consentirte!
               </p>
             </div>
           </div>
@@ -117,9 +108,9 @@ const verGaleria = ref(false)
           <!-- Tarjeta 4 -->
           <div class="col-md-6 col-lg-3">
             <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
-              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Agenda tu hora</h3>
+              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Atención personalizada</h3>
               <p class="fs-6 text-muted lh-base m-0">
-                Fácil y rápido por WhatsApp. ¡Te espero para consentirte!
+                Cada diseño es único, pensado especialmente como tú.
               </p>
             </div>
           </div>
@@ -195,7 +186,6 @@ const verGaleria = ref(false)
 </template>
 
 <style>
-/* Estilos globales para matizar el diseño de la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
 
@@ -285,10 +275,6 @@ body {
 }
 
 .lh-base {
-  line-height: 1.6 !important; /* Da aire entre las líneas para que se lea mejor */
-}
-
-.fs-7 {
-  font-size: 0.88rem; /* Tamaño ideal para textos secundarios */
+  line-height: 1.6 !important;
 }
 </style>
