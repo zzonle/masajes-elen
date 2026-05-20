@@ -3,7 +3,7 @@
     <div class="container-fluid container-lg">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <h1 class="brand-text m-0 fs-3 fw-bold">Masajes</h1>
-        <span class="brand-subtext m-0 fs-6 ms-1 texto-pink">ELENA</span>
+        <span class="brand-subtext m-0 fs-6 ms-1 texto-pink">ELEN</span>
       </a>
 
       <button

@@ -43,11 +43,11 @@ const verGaleria = ref(false)
 
     <div id="galeria">
       <section class="py-5 bg-white text-center">
-        <div class="container">
-          <span class="text-uppercase text-pink d-block mb-1">Galería ♡</span>
-          <h2 class="serif-title mb-4">Algunos de mis trabajos</h2>
+        <div class="container px-4">
+          <span class="text-uppercase text-pink d-block mb-1 tracking-wider">Galería ♡</span>
+          <h2 class="serif-title mb-4 fs-2">Algunos de mis trabajos</h2>
 
-          <div class="row g-3">
+          <div class="row row-cols-2 row-cols-md-2 g-2 g-md-3">
             <div class="col" v-for="n in 2" :key="n">
               <div class="gallery-wrapper overflow-hidden rounded-3 shadow-sm">
                 <img
@@ -61,55 +61,54 @@ const verGaleria = ref(false)
 
           <button
             @click="verGaleria = true"
-            class="btn btn-outline-pink mt-4 px-4 text-uppercase fs-7"
+            class="btn btn-outline-pink mt-4 px-5 py-2 text-uppercase fs-7 fw-medium rounded-pill"
           >
-            Ver Galerría
+            Ver Galería
           </button>
         </div>
       </section>
-
-      <GaleriaCompleta :mostrar="verGaleria" @cerrar="verGaleria = false" />
     </div>
 
     <section class="py-5" style="background-color: #fff5f6">
-      <div class="container py-2">
-        <!-- g-4 añade la separación horizontal y vertical automática entre columnas -->
-        <div class="row g-4 justify-content-center">
-          <!-- Tarjeta 1 -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
-              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Productos de calidad</h3>
-              <p class="fs-6 text-muted lh-base m-0">
+      <div class="container">
+        <div
+          class="row flex-nowrap overflow-x-auto pb-3 g-3 px-3 scroll-mobile justify-content-md-center"
+        >
+          <div class="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0">
+            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white rounded-3">
+              <div class="icon-circle mb-3"><i class="bi bi-gem text-pink"></i></div>
+              <h3 class="fs-5 fw-bold text-dark-pink mb-2">Productos de calidad</h3>
+              <p class="fs-7 text-muted lh-base m-0">
                 Utilizo productos profesionales para cuidar la salud de tus uñas.
               </p>
             </div>
           </div>
 
-          <!-- Tarjeta 2 -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
-              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Higiene y seguridad</h3>
-              <p class="fs-6 text-muted lh-base m-0">
+          <div class="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0">
+            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white rounded-3">
+              <div class="icon-circle mb-3"><i class="bi bi-shield-check text-pink"></i></div>
+              <h3 class="fs-5 fw-bold text-dark-pink mb-2">Higiene y seguridad</h3>
+              <p class="fs-7 text-muted lh-base m-0">
                 Instrumentos esterilizados y espacio 100% higiénico.
               </p>
             </div>
           </div>
 
-          <!-- Tarjeta 3 -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
-              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Agenda tu hora</h3>
-              <p class="fs-6 text-muted lh-base m-0">
+          <div class="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0">
+            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white rounded-3">
+              <div class="icon-circle mb-3"><i class="bi bi-calendar-heart text-pink"></i></div>
+              <h3 class="fs-5 fw-bold text-dark-pink mb-2">Agenda tu hora</h3>
+              <p class="fs-7 text-muted lh-base m-0">
                 Fácil y rápido por WhatsApp. ¡Te espero para consentirte!
               </p>
             </div>
           </div>
 
-          <!-- Tarjeta 4 -->
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white">
-              <h3 class="fs-4 fw-bold text-dark-pink mb-3">Atención personalizada</h3>
-              <p class="fs-6 text-muted lh-base m-0">
+          <div class="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0">
+            <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white rounded-3">
+              <div class="icon-circle mb-3"><i class="bi bi-heart text-pink"></i></div>
+              <h3 class="fs-5 fw-bold text-dark-pink mb-2">Atención personalizada</h3>
+              <p class="fs-7 text-muted lh-base m-0">
                 Cada diseño es único, pensado especialmente como tú.
               </p>
             </div>
@@ -120,21 +119,23 @@ const verGaleria = ref(false)
 
     <section id="opiniones" class="py-5 bg-white text-center">
       <div class="container">
-        <span class="text-pink d-block mb-1">Lo que dicen mis clientas ♡</span>
-        <h2 class="serif-title mb-5">Opiniones que me motivan</h2>
+        <span class="text-pink d-block mb-1 tracking-wider">Lo que dicen mis clientas ♡</span>
+        <h2 class="serif-title mb-4 fs-2">Opiniones que me motivan</h2>
 
-        <div class="row g-4 justify-content-center">
-          <div class="col-md-4" v-for="t in testimonios" :key="t.id">
+        <div
+          class="row flex-nowrap overflow-x-auto pb-3 g-3 px-3 scroll-mobile justify-content-md-center"
+        >
+          <div class="col-10 col-sm-6 col-md-4 flex-shrink-0" v-for="t in testimonios" :key="t.id">
             <div
-              class="card border-0 bg-light-pink p-4 h-100 text-start position-relative rounded-3"
+              class="card border-0 bg-light-pink p-4 h-100 text-start position-relative rounded-3 shadow-xs"
             >
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <h6 class="fw-bold text-dark m-0">{{ t.nombre }}</h6>
-                <div class="text-warning">
+                <h6 class="fw-bold text-dark m-0 fs-7">{{ t.nombre }}</h6>
+                <div class="text-warning small">
                   <span v-for="i in t.estrellas" :key="i">★</span>
                 </div>
               </div>
-              <p class="text-muted fs-7 m-0 italic-quote">"{{ t.texto }}"</p>
+              <p class="text-muted fs-7 m-0 italic-quote lh-base">"{{ t.texto }}"</p>
             </div>
           </div>
         </div>
@@ -142,33 +143,33 @@ const verGaleria = ref(false)
     </section>
 
     <footer class="footer-section pt-5 text-dark">
-      <div class="container border-bottom pb-4">
-        <div class="row g-4 text-start justify-content-between">
-          <div class="col-md-3">
-            <h6 class="fw-bold mb-3">📍 ¿DÓNDE ESTOY?</h6>
+      <div class="container px-4 border-bottom pb-4">
+        <div class="row g-4 text-center text-md-start justify-content-between">
+          <div class="col-sm-6 col-md-3">
+            <h6 class="fw-bold mb-2 small tracking-wider">📍 ¿DÓNDE ESTOY?</h6>
             <p class="fs-7 text-muted mb-1">Puerto Montt, Chile</p>
           </div>
-          <div class="col-md-3">
-            <h6 class="fw-bold mb-3">🕒 HORARIOS</h6>
+          <div class="col-sm-6 col-md-3">
+            <h6 class="fw-bold mb-2 small tracking-wider">🕒 HORARIOS</h6>
             <p class="fs-7 text-muted mb-0"><b>Lunes a Viernes</b><br />10:00 - 20:00 hrs</p>
             <p class="fs-7 text-muted mb-0 mt-2"><b>Sábados</b><br />10:00 - 16:00 hrs</p>
           </div>
-          <div class="col-md-3">
-            <h6 class="fw-bold mb-3">💬 WHATSAPP</h6>
-            <p class="fs-7 text-muted mb-1">Reserva tu hora<br />+56 9 7947 2823</p>
+          <div class="col-sm-6 col-md-3">
+            <h6 class="fw-bold mb-2 small tracking-wider">💬 WHATSAPP</h6>
+            <p class="fs-7 text-muted mb-2">Reserva tu hora<br />+56 9 7947 2823</p>
             <a
               href="https://wa.me/56979472823?text=Hola%20Elena!%20%20Me%20gustar%C3%ADa%20consultar%20por%20un%20servicio%20de%20u%C3%B1as%20o%20masajes%20"
-              class="fs-7 text-pink"
+              class="btn btn-sm btn-pink-text px-3 rounded-pill fs-7"
               target="_blank"
               >Escribirme</a
             >
           </div>
-          <div class="col-md-3">
-            <h6 class="fw-bold mb-3">📸 SÍGUEME</h6>
-            <p class="fs-7 text-muted mb-1">@masajesyunas.elen</p>
+          <div class="col-sm-6 col-md-3">
+            <h6 class="fw-bold mb-2 small tracking-wider">📸 SÍGUEME</h6>
+            <p class="fs-7 text-muted mb-2">@masajesyunas.elen</p>
             <a
               href="https://www.instagram.com/masajesyunas.elen"
-              class="fs-7 text-pink"
+              class="btn btn-sm btn-pink-text px-3 rounded-pill fs-7"
               target="_blank"
               >Ver Instagram</a
             >
@@ -177,9 +178,17 @@ const verGaleria = ref(false)
       </div>
       <div class="bg-pink-footer text-center py-4 text-white">
         <p class="m-0 fs-7">Gracias por confiar en mi trabajo ❤</p>
-        <small class="opacity-75">© 2026 Masajes Elen. Diseñado con amor ❤</small>
+        <small class="opacity-75 fs-8">© 2026 Masajes Elen. Diseñado con amor ❤</small>
       </div>
     </footer>
+
+    <a
+      href="https://wa.me/56979472823?text=Hola%20Elena!%20%20Me%20gustar%C3%ADa%20consultar%20por%20un%20servicio%20de%20u%C3%B1as%20o%20masajes%20"
+      class="whatsapp-floating-btn shadow"
+      target="_blank"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
 
     <GaleriaCompleta :mostrar="verGaleria" @cerrar="verGaleria = false" />
   </div>
@@ -187,11 +196,11 @@ const verGaleria = ref(false)
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #fff;
+  overflow-x: hidden; /* Evita scrolls raros hacia los lados */
 }
 .serif-title {
   font-family: 'Playfair Display', serif;
@@ -199,27 +208,42 @@ body {
 .text-pink {
   color: #e57c91;
 }
+.tracking-wider {
+  letter-spacing: 1.5px;
+}
 .btn-outline-pink {
   border: 1px solid #e57c91;
   color: #e57c91;
   background: white;
+  transition: all 0.3s ease;
 }
 .btn-outline-pink:hover {
+  background-color: #e57c91;
+  color: white;
+}
+.btn-pink-text {
+  color: #e57c91;
+  border: 1px solid #ffeef0;
+  background-color: #fff7f8;
+}
+.btn-pink-text:hover {
   background-color: #e57c91;
   color: white;
 }
 .gallery-img {
   transition: transform 0.4s ease;
   cursor: pointer;
-  height: 250px;
+  height: 180px; /* Reducido un poco para móviles */
   object-fit: cover;
   width: 100%;
 }
-.gallery-img:hover {
-  transform: scale(1.08);
+@media (min-width: 768px) {
+  .gallery-img {
+    height: 250px;
+  }
 }
-.info-banner {
-  background-color: #fff0f2;
+.gallery-img:hover {
+  transform: scale(1.04);
 }
 .bg-light-pink {
   background-color: #fff7f8;
@@ -234,47 +258,70 @@ body {
 .bg-pink-footer {
   background-color: #e57c91;
 }
+
+/* BOTÓN FLOTANTE DE WHATSAPP REAL (Usa color oficial de WhatsApp) */
 .whatsapp-floating-btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: #e57c91;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
   color: white;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  z-index: 1000;
+  font-size: 1.6rem;
+  z-index: 1050;
   text-decoration: none;
+  transition: transform 0.3s ease;
 }
-@media (min-width: 768px) {
-  .border-end-md {
-    border-end: 1px solid #ffd1d9;
+.whatsapp-floating-btn:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+/* ICONOS REDONDOS PARA LAS TARJETAS */
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #fff0f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1.3rem;
+}
+
+/* TRUCO MOBILE-FIRST PARA CAROUSEL TÁCTIL */
+@media (max-width: 991.98px) {
+  .scroll-mobile {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Oculta barra en Firefox */
+  }
+  .scroll-mobile::-webkit-scrollbar {
+    display: none; /* Oculta barra en Chrome/Safari */
   }
 }
+
 .fs-7 {
   font-size: 0.85rem;
 }
-
-.text-gold {
-  color: #daa520; /* Tu color dorado característico */
+.fs-8 {
+  font-size: 0.75rem;
 }
 
 .text-dark-pink {
-  color: #c45b70; /* Un rosa con más peso visual para los títulos */
-  font-family: 'Playfair Display', serif; /* Misma fuente del logo para consistencia */
+  color: #c45b70;
+  font-family: 'Playfair Display', serif;
   letter-spacing: 0.5px;
 }
-
 .text-muted {
   color: #6c757d !important;
-  font-family: 'Poppins', sans-serif;
 }
-
 .lh-base {
-  line-height: 1.6 !important;
+  line-height: 1.5 !important;
 }
 </style>
