@@ -43,27 +43,43 @@ const verGaleria = ref(false)
 
     <div id="galeria">
       <section class="py-5 bg-white text-center">
-        <div class="container px-4">
-          <span class="text-uppercase text-pink d-block mb-1 tracking-wider">Galería ♡</span>
-          <h2 class="serif-title mb-4 fs-2">Algunos de mis trabajos</h2>
+        <div class="container px-4 m-max-width">
+          <span class="text-uppercase text-pink d-block mb-1 tracking-wider small">Galería ♡</span>
+          <h2 class="serif-title mb-5 fs-2">Trabajos Recientes</h2>
 
-          <div class="row row-cols-2 row-cols-md-2 g-2 g-md-3">
-            <div class="col" v-for="n in 2" :key="n">
-              <div class="gallery-wrapper overflow-hidden rounded-3 shadow-sm">
+          <div class="row g-3 align-items-center justify-content-center">
+            <div class="col-6 col-md-5">
+              <div
+                class="preview-card card-tall overflow-hidden rounded-4 shadow-sm position-relative"
+              >
                 <img
-                  :src="`https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=400`"
-                  class="img-fluid gallery-img"
-                  alt="Trabajo"
+                  src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=500"
+                  class="img-fluid preview-img"
+                  alt="Trabajo 1"
                 />
+                <div class="preview-badge">Soft Gel</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 mt-4 mt-sm-0">
+              <div
+                class="preview-card card-short overflow-hidden rounded-4 shadow-sm position-relative"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1604654894610-df490651e56c?q=80&w=500"
+                  class="img-fluid preview-img"
+                  alt="Trabajo 2"
+                />
+                <div class="preview-badge">Nail Art</div>
               </div>
             </div>
           </div>
 
           <button
             @click="verGaleria = true"
-            class="btn btn-outline-pink mt-4 px-5 py-2 text-uppercase fs-7 fw-medium rounded-pill"
+            class="btn btn-outline-pink-ref mt-5 px-5 py-2 text-uppercase fs-7 fw-medium rounded-pill"
           >
-            Ver Galería
+            Explorar Catálogo Completa
           </button>
         </div>
       </section>
@@ -323,5 +339,65 @@ body {
 }
 .lh-base {
   line-height: 1.5 !important;
+}
+.m-max-width {
+  max-width: 800px;
+}
+
+.preview-card {
+  position: relative;
+  background-color: #fcf8f8;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.card-tall {
+  height: 280px;
+}
+.card-short {
+  height: 220px;
+}
+
+/* En pantallas grandes (Desktop): Ambas tienen exactamente la misma altura */
+@media (min-width: 768px) {
+  .card-tall,
+  .card-short {
+    height: 320px;
+  }
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.preview-card:hover .preview-img {
+  transform: scale(1.04);
+}
+
+/* Una etiqueta minimalista y fina que se asoma abajo de la foto */
+.preview-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #5a4b41;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+@media (min-width: 768px) {
+  .preview-badge {
+    font-size: 0.8rem;
+    bottom: 20px;
+    left: 20px;
+  }
 }
 </style>
