@@ -1,56 +1,30 @@
 <script setup>
+import { computed } from 'vue'
+import { AdvancedImage, lazyload, responsive } from '@cloudinary/vue'
+import { fill } from '@cloudinary/url-gen/actions/resize'
+import { cld } from '@/main.js'
 import { ref } from 'vue'
-
-// Definimos si el bloque está visible o no
+import fotosData from '@/assets/fotos.json'
 defineProps({
   mostrar: Boolean,
+  publicId: { type: String, required: false },
+  width: { type: Number, default: 400 },
+  height: { type: Number, default: 300 },
 })
 
 defineEmits(['cerrar'])
 
-// Aquí pones todas las fotos de las uñas que ha hecho
-const fotosUñas = ref([
-  {
-    id: 1,
-    url: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=400',
-    estilo: 'Soft Gel Premium',
-  },
-  {
-    id: 2,
-    url: 'https://images.unsplash.com/photo-1604654894610-df490651e56c?q=80&w=400',
-    estilo: 'Esmaltado Permanente Nude',
-  },
-  {
-    id: 3,
-    url: 'https://images.unsplash.com/photo-1632345031435-8797b2d58045?q=80&w=400',
-    estilo: 'Nail Art Mano Alzada',
-  },
-  {
-    id: 4,
-    url: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=400',
-    estilo: 'Francesa Clásica',
-  },
-  {
-    id: 5,
-    url: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?q=80&w=400',
-    estilo: 'Efecto Aurora',
-  },
-  {
-    id: 6,
-    url: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=400',
-    estilo: 'Diseño con Cristales',
-  },
-  {
-    id: 7,
-    url: 'https://images.unsplash.com/photo-1604654894610-df490651e56c?q=80&w=400',
-    estilo: 'Kapping Gel',
-  },
-  {
-    id: 8,
-    url: 'https://images.unsplash.com/photo-1632345031435-8797b2d58045?q=80&w=400',
-    estilo: 'Glitter Encapsulado',
-  },
-])
+const plugins = [lazyload(), responsive()]
+
+const fotosUñas = ref(
+  fotosData.map((foto, index) => ({
+    id: index,
+    publicId: foto.publicId,
+    estilo: 'Uñas Elena',
+  })),
+)
+const getImage = (publicId) =>
+  cld.image(publicId).resize(fill().width(400).height(300)).format('auto').quality('auto')
 </script>
 
 <template>
@@ -58,13 +32,12 @@ const fotosUñas = ref([
     v-if="mostrar"
     class="modal-overlay d-flex align-items-center justify-content-center p-2 p-md-4"
   >
+    <button @click="$emit('cerrar')" class="btn-close-custom shadow-sm" aria-label="Cerrar">
+      <img src="@/assets/close-icon.svg" alt="Cerrar" />
+    </button>
     <div
       class="modal-content-custom bg-white p-3 p-md-5 rounded-4 shadow position-relative overflow-auto"
     >
-      <button @click="$emit('cerrar')" class="btn-close-custom shadow-sm" aria-label="Cerrar">
-        <i class="bi bi-x-lg fs-6"></i>
-      </button>
-
       <div class="text-center mb-4 mt-2">
         <span class="text-uppercase tracking-wider text-pink small d-block mb-1"
           >Elegancia en tus manos ♡</span
@@ -76,11 +49,17 @@ const fotosUñas = ref([
       <div class="row g-2 g-md-3 row-cols-2 row-cols-md-4">
         <div class="col" v-for="foto in fotosUñas" :key="foto.id">
           <div class="gallery-card overflow-hidden rounded-3 position-relative shadow-sm">
-            <img :src="foto.url" class="img-fluid full-gallery-img" :alt="foto.estilo" />
+            <AdvancedImage
+              :cldImg="getImage(foto.publicId)"
+              :plugins="plugins"
+              class="img-fluid full-gallery-img"
+              :alt="foto.estilo"
+            />
+
             <div class="overlay-text d-flex align-items-end justify-content-center pb-2">
-              <span class="text-white text-uppercase badge-style px-2 py-1 text-center w-90">{{
-                foto.estilo
-              }}</span>
+              <span class="text-white text-uppercase badge-style px-2 py-1 text-center w-90">
+                {{ foto.estilo }}
+              </span>
             </div>
           </div>
         </div>
@@ -98,7 +77,7 @@ const fotosUñas = ref([
   height: 100vh;
   background-color: rgba(90, 75, 65, 0.75);
   z-index: 2500;
-  backdrop-filter: blur(4px); /* Suaviza el fondo */
+  backdrop-filter: blur(4px);
 }
 .modal-content-custom {
   max-width: 1000px;
@@ -107,7 +86,7 @@ const fotosUñas = ref([
   border: 1px solid #ffeef0;
 }
 .btn-close-custom {
-  position: absolute;
+  position: fixed;
   top: 12px;
   right: 12px;
   background: #f3e5e2;
@@ -181,5 +160,9 @@ const fotosUñas = ref([
     white-space: normal;
     max-width: 100%;
   }
+}
+.btn-close-custom img {
+  width: 20px;
+  height: 20px;
 }
 </style>

@@ -5,7 +5,21 @@ import ServiciosSection from './components/ServiciosSection.vue'
 import HeroSection from './components/HeroSection.vue'
 import GaleriaCompleta from './components/GaleriaCompleta.vue'
 
-// Datos de testimonios simulando la imagen
+import fotosData from '@/assets/fotos.json'
+import { cld } from '@/main.js'
+import { fill } from '@cloudinary/url-gen/actions/resize'
+import { AdvancedImage } from '@cloudinary/vue'
+
+const getImage = (publicId) =>
+  cld.image(publicId).resize(fill().width(500).height(600)).format('auto').quality('auto')
+
+const total = fotosData.length
+const preview = [
+  fotosData[0],
+  fotosData[Math.floor(total / 3)],
+  fotosData[Math.floor((total / 3) * 2)],
+  fotosData[7],
+]
 const testimonios = ref([
   {
     id: 1,
@@ -48,29 +62,19 @@ const verGaleria = ref(false)
           <h2 class="serif-title mb-5 fs-2">Trabajos Recientes</h2>
 
           <div class="row g-3 align-items-center justify-content-center">
-            <div class="col-6 col-md-5">
-              <div
-                class="preview-card card-tall overflow-hidden rounded-4 shadow-sm position-relative"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=500"
-                  class="img-fluid preview-img"
-                  alt="Trabajo 1"
-                />
-                <div class="preview-badge">Soft Gel</div>
-              </div>
-            </div>
-
-            <div class="col-6 col-md-4 mt-4 mt-sm-0">
-              <div
-                class="preview-card card-short overflow-hidden rounded-4 shadow-sm position-relative"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1604654894610-df490651e56c?q=80&w=500"
-                  class="img-fluid preview-img"
-                  alt="Trabajo 2"
-                />
-                <div class="preview-badge">Nail Art</div>
+            <div
+              class="row g-2 g-md-3 justify-content-center"
+              style="max-width: 600px; margin: 0 auto"
+            >
+              <div class="col-6" v-for="(foto, i) in preview" :key="i">
+                <div class="preview-card overflow-hidden rounded-4 shadow-sm position-relative">
+                  <AdvancedImage
+                    :cldImg="getImage(foto.publicId)"
+                    class="preview-img"
+                    alt="Trabajo"
+                  />
+                  <div class="preview-badge">Uñas Elena</div>
+                </div>
               </div>
             </div>
           </div>
@@ -102,7 +106,9 @@ const verGaleria = ref(false)
 
           <div class="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0">
             <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white rounded-3">
-              <div class="icon-circle mb-3"><i class="bi bi-shield-check text-pink"></i></div>
+              <div class="icon-circle mb-3">
+                <i class="bi bi-shield-check text-pink"></i>
+              </div>
               <h3 class="fs-5 fw-bold text-dark-pink mb-2">Higiene y seguridad</h3>
               <p class="fs-7 text-muted lh-base m-0">
                 Instrumentos esterilizados y espacio 100% higiénico.
@@ -112,7 +118,9 @@ const verGaleria = ref(false)
 
           <div class="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0">
             <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white rounded-3">
-              <div class="icon-circle mb-3"><i class="bi bi-calendar-heart text-pink"></i></div>
+              <div class="icon-circle mb-3">
+                <i class="bi bi-calendar-heart text-pink"></i>
+              </div>
               <h3 class="fs-5 fw-bold text-dark-pink mb-2">Agenda tu hora</h3>
               <p class="fs-7 text-muted lh-base m-0">
                 Fácil y rápido por WhatsApp. ¡Te espero para consentirte!
@@ -122,7 +130,9 @@ const verGaleria = ref(false)
 
           <div class="col-10 col-sm-6 col-md-4 col-lg-3 flex-shrink-0">
             <div class="card border-0 shadow-sm p-4 h-100 text-center bg-white rounded-3">
-              <div class="icon-circle mb-3"><i class="bi bi-heart text-pink"></i></div>
+              <div class="icon-circle mb-3">
+                <i class="bi bi-heart text-pink"></i>
+              </div>
               <h3 class="fs-5 fw-bold text-dark-pink mb-2">Atención personalizada</h3>
               <p class="fs-7 text-muted lh-base m-0">
                 Cada diseño es único, pensado especialmente como tú.
@@ -279,7 +289,6 @@ body {
   background-color: #e57c91;
 }
 
-/* BOTÓN FLOTANTE DE WHATSAPP REAL (Usa color oficial de WhatsApp) */
 .whatsapp-floating-btn {
   position: fixed;
   bottom: 20px;
@@ -302,7 +311,6 @@ body {
   color: white;
 }
 
-/* ICONOS REDONDOS PARA LAS TARJETAS */
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -315,7 +323,6 @@ body {
   font-size: 1.3rem;
 }
 
-/* TRUCO MOBILE-FIRST PARA CAROUSEL TÁCTIL */
 @media (max-width: 991.98px) {
   .scroll-mobile {
     -webkit-overflow-scrolling: touch;
@@ -349,24 +356,30 @@ body {
 }
 
 .preview-card {
-  position: relative;
-  background-color: #fcf8f8;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+  aspect-ratio: 4 / 5; /* proporción vertical, ni muy alta ni muy ancha */
 }
 
-.card-tall {
-  height: 280px;
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
+.card-tall,
 .card-short {
-  height: 220px;
+  aspect-ratio: 3 / 4; /* proporción vertical tipo retrato */
 }
 
-/* En pantallas grandes (Desktop): Ambas tienen exactamente la misma altura */
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (min-width: 768px) {
   .card-tall,
   .card-short {
-    height: 320px;
+    height: 320px; /* este ya estaba bien */
   }
 }
 
