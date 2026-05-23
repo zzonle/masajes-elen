@@ -24,16 +24,16 @@
       >
         <ul class="navbar-nav ms-auto text-uppercase align-items-center">
           <li class="nav-item">
-            <a class="nav-link" href="#inicio" @click="isMenuOpen = false">Inicio</a>
+            <a class="nav-link" href="#inicio" @click="navegarA('inicio')">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#servicios" @click="isMenuOpen = false">Servicios</a>
+            <a class="nav-link" href="#servicios" @click="navegarA('servicios')">Servicios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#galeria" @click="isMenuOpen = false">Galería</a>
+            <a class="nav-link" href="#galeria" @click="navegarA('galeria')">Galería</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#opiniones" @click="isMenuOpen = false">Opiniones</a>
+            <a class="nav-link" href="#opiniones" @click="navegarA('opiniones')">Opiniones</a>
           </li>
         </ul>
       </div>
@@ -45,6 +45,12 @@
 import { ref } from 'vue'
 
 const isMenuOpen = ref(false)
+const navegarA = (id) => {
+  isMenuOpen.value = false
+  setTimeout(() => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  }, 350) // espera que el menú se cierre primero
+}
 </script>
 
 <style scoped>

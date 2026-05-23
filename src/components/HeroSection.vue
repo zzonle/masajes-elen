@@ -18,7 +18,7 @@
             class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start mb-4"
           >
             <a
-              href="https://wa.me/56979472823"
+              href="https://wa.me/56979472823?text=Hola%20Elena!%20%20Me%20gustar%C3%ADa%20consultar%20por%20un%20servicio%20de%20u%C3%B1as%20o%20masajes%20"
               target="_blank"
               class="btn btn-primary-pink rounded-3 px-4 py-2 text-uppercase fw-medium d-inline-flex align-items-center justify-content-center gap-2"
             >

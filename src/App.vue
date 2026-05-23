@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import navbar from './components/navbar.vue'
 import ServiciosSection from './components/ServiciosSection.vue'
 import HeroSection from './components/HeroSection.vue'
@@ -13,13 +13,24 @@ import { AdvancedImage } from '@cloudinary/vue'
 const getImage = (publicId) =>
   cld.image(publicId).resize(fill().width(500).height(600)).format('auto').quality('auto')
 
-const total = fotosData.length
-const preview = [
-  fotosData[0],
-  fotosData[Math.floor(total / 3)],
-  fotosData[Math.floor((total / 3) * 2)],
-  fotosData[7],
-]
+const getRandomFotos = () => {
+  const shuffled = [...fotosData].sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, 4)
+}
+
+const preview = ref(getRandomFotos())
+
+let intervalo
+onMounted(() => {
+  intervalo = setInterval(
+    () => {
+      preview.value = getRandomFotos()
+    },
+    5 * 60 * 1000,
+  )
+})
+
+onUnmounted(() => clearInterval(intervalo))
 const testimonios = ref([
   {
     id: 1,
@@ -64,16 +75,16 @@ const verGaleria = ref(false)
           <div class="row g-3 align-items-center justify-content-center">
             <div
               class="row g-2 g-md-3 justify-content-center"
-              style="max-width: 600px; margin: 0 auto"
+              style="max-width: 1000px; margin: 0 auto"
             >
-              <div class="col-6" v-for="(foto, i) in preview" :key="i">
+              <div class="col-6 col-md-3" v-for="(foto, i) in preview" :key="i">
                 <div class="preview-card overflow-hidden rounded-4 shadow-sm position-relative">
                   <AdvancedImage
                     :cldImg="getImage(foto.publicId)"
                     class="preview-img"
                     alt="Trabajo"
                   />
-                  <div class="preview-badge">Uñas Elena</div>
+                  <div class="preview-badge">Uñas Elen</div>
                 </div>
               </div>
             </div>
@@ -267,11 +278,7 @@ body {
   object-fit: cover;
   width: 100%;
 }
-@media (min-width: 768px) {
-  .gallery-img {
-    height: 250px;
-  }
-}
+
 .gallery-img:hover {
   transform: scale(1.04);
 }
@@ -415,6 +422,16 @@ body {
     font-size: 0.8rem;
     bottom: 20px;
     left: 20px;
+  }
+}
+html {
+  scroll-padding-top: 70px; /* móvil */
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 992px) {
+  html {
+    scroll-padding-top: 80px; /* desktop */
   }
 }
 </style>
