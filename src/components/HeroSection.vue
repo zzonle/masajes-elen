@@ -11,7 +11,8 @@
             <span class="italic-pink">cuidamos de ti ♡</span>
           </h1>
           <p class="text-muted mb-4 lead-text">
-            Uñas acrílicas, gel y diseños personalizados para que te sientas única todos los días.
+            Esmaltado permanente, uñas soft gel y diseños personalizados para que te sientas única
+            todos los días.
           </p>
 
           <div
